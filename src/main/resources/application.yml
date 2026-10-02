@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: adotamatch-backend
+  datasource:
+    url: jdbc:h2:mem:adotamatchdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+# Configurações do Swagger OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+# Configurações do Motor de Recomendação AdotaMatch
+adotamatch:
+  recommendation:
+    llm:
+      provider: mock-fallback # Permite alternar entre mock-fallback e spring-ai
+      timeout-ms: 5000
+    weights:
+      energy-time: 0.20
+      kids-pets: 0.15
+      housing-size: 0.15
+      solitary-routine: 0.15
+      experience-care: 0.15
+      llm-semantic: 0.20

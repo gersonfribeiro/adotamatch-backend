@@ -1,0 +1,21 @@
+# Compilação e Build
+target/
+*.class
+
+# Ambientes e Variáveis Secretas
+.env
+.env.*
+!.env.example
+.envrc
+
+# IDEs e Editores
+.idea/
+*.iml
+.vscode/
+*.ipr
+*.iws
+
+# Logs e Sistema
+*.log
+.DS_Store
+Thumbs.db
